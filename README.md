@@ -1,7 +1,7 @@
-# Перевод Ruby on Rails Tutorial: пример приложения
+# Hotel Advisor
 
-Это пример приложения для
-[*Перевод Ruby on Rails Tutorial: Изучение Rails на Примерах*](http://railstutorial.org/)
-by [Майкл Хартл](http://michaelhartl.com/).
+This sample application "Hotel"
 
-Ololol Push Iv
+Gems in project - twitter bootstrap, RSpec, capybara, etc
+
+To create the application used: tryruby.org, railstutorial.ru and of course stackoverflov.com
