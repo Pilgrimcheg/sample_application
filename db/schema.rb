@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130426083955) do
+ActiveRecord::Schema.define(:version => 20130426201142) do
+
+  create_table "hotels", :force => true do |t|
+    t.string   "title"
+    t.text     "room_description"
+    t.boolean  "include_breakfast"
+    t.float    "price"
+    t.string   "adress"
+    t.integer  "user_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  add_index "hotels", ["user_id", "created_at"], :name => "index_hotels_on_user_id_and_created_at"
 
   create_table "users", :force => true do |t|
     t.string   "name"

@@ -30,6 +30,8 @@ describe User do
   it {should be_valid}
   it {should_not be_admin}
 
+  it {should respond_to(:hotels)}
+
   describe "accessible attributes" do
     it "should not allow access to admin" do
     expect do
