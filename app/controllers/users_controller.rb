@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
 def show
   @user = User.find(params[:id])
+  @hotels = @user.hotels.paginate(page: params[:page], per_page: 3)
 end
 
   def new
@@ -44,7 +45,7 @@ end
   end
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page], per_page: 7)
   end
 
   def destroy
@@ -59,13 +60,6 @@ end
   end
 
   private
-
-  def signed_in_user
-    unless signed_in?
-      store_location
-    redirect_to signin_url, notice: "Please sign in."
-  end
-    end
 
     def correct_user
       @user = User.find(params[:id])

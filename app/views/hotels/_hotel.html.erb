@@ -1,0 +1,14 @@
+<li>
+    <span class="content"><%= hotel.title %>
+    <p><span class="title">Room description:</span><%= hotel.room_description %>
+    <p><span class="title">Include breakfast:</span><%= hotel.include_breakfast %>
+    <p><span class="title">Price:</span> <%= hotel.price %>
+    <p><span class="title">Adress:</span> <%= hotel.adress %></span>
+    <p><span class="timestamp">
+      Posted <%= time_ago_in_words(hotel.created_at) %> ago.
+    </span>
+    <% if current_user?(hotel.user) %>
+    <%= link_to "delete", hotel, method: :delete, data: {confirm: "You sure?"},
+                                                                                        title: hotel.title %>
+      <% end %>
+</li>

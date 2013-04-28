@@ -78,6 +78,19 @@ describe "Authentication" do
           page.should have_selector('title', text:user.name)
         end
       end
+
+      describe "in the Hotels controller" do
+
+        describe "submitting to the create action" do
+          before {post hotels_path}
+          specify {response.should redirect_to(signin_path)}
+        end
+
+        describe "submitting to the destroy action" do
+          before {delete hotel_path(FactoryGirl.create(:hotel))}
+          specify {response.should redirect_to(signin_path)}
+        end
+      end
       end
     end
 

@@ -16,13 +16,13 @@ describe "UserPages" do
 
     describe "pagination" do
 
-      before(:all) {30.times {FactoryGirl.create(:user)}}
+      before(:all) {8.times {FactoryGirl.create(:user)}}
       after(:all) {User.delete_all}
 
       it {should have_selector('div.pagination')}
 
     it "should list each user" do
-      User.paginate(page: 1).each do |user|
+      User.paginate(page: 1, per_page: 7).each do |user|
         page.should have_selector('li', text: user.name)
       end
      end
@@ -57,10 +57,21 @@ describe "UserPages" do
 
    describe "profile page" do
    let(:user) {FactoryGirl.create(:user)}
+   let!(:hotel1) {FactoryGirl.create(:hotel, user: user, title: "Moscow",
+    room_description:"Good", include_breakfast: true, price: 366.5, adress: "Red square" )}
+    let!(:hotel2) {FactoryGirl.create(:hotel, user: user, title: "Sevastopol",
+    room_description:"Nice", include_breakfast: true, price: 255.5, adress: "Lazareva square")}
+
    before {visit user_path(user)}
 
    it {should have_selector('h1', text: user.name)}
    it {should have_selector('title', text: user.name)}
+
+    describe "hotels" do
+      it {should have_content(hotel1.title)}
+      it {should have_content(hotel2.title)}
+      it {should have_content(user.hotels.count)}
+    end
  end
  describe "signup" do
 

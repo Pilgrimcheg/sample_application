@@ -14,6 +14,17 @@ namespace :db do
                    email: email,
                    password: password,
                    password_confirmation: password)
+     end
+
+    users = User.all(limit: 6)
+    50.times do
+      title = Faker::Lorem.sentence(5)
+      room_description = "Maybe best room in the world"
+      include_breakfast = true
+      price = 566.3
+      adress  = "Sevastopol"
+      users.each {|user| user.hotels.create!(title: title, room_description: room_description,
+        include_breakfast: include_breakfast, price: price, adress: adress)}
     end
   end
 end

@@ -9,4 +9,13 @@ FactoryGirl.define do
     admin true
   end
   end
+
+    factory :hotel do
+      title "Hilton"
+      room_description "Very beuty"
+      include_breakfast true
+      price 3258.2
+      adress "fiol str."
+      user
+    end
 end
