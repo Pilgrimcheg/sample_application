@@ -4,8 +4,9 @@
     <p><span class="title">Include breakfast:</span><%= hotel.include_breakfast %>
     <p><span class="title">Price:</span> <%= hotel.price %>
     <p><span class="title">Adress:</span> <%= hotel.adress %></span>
+    <p><span class="title">Stars:</span> <%= hotel.star_rate_hotel %></span>
     <p><span class="timestamp">
-      Posted <%= time_ago_in_words(hotel.created_at) %> ago.
+      Posted <%= time_ago_in_words(hotel.created_at) %> ago. Stars : <%= rating_for hotel, "stars", :star => 5 %>
     </span>
     <% if current_user?(hotel.user) %>
     <%= link_to "delete", hotel, method: :delete, data: {confirm: "You sure?"},

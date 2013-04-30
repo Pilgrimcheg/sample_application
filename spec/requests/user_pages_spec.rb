@@ -58,9 +58,9 @@ describe "UserPages" do
    describe "profile page" do
    let(:user) {FactoryGirl.create(:user)}
    let!(:hotel1) {FactoryGirl.create(:hotel, user: user, title: "Moscow",
-    room_description:"Good", include_breakfast: true, price: 366.5, adress: "Red square" )}
+    room_description:"Good", include_breakfast: true, price: 366.5, adress: "Red square",star_rate_hotel: 3 )}
     let!(:hotel2) {FactoryGirl.create(:hotel, user: user, title: "Sevastopol",
-    room_description:"Nice", include_breakfast: true, price: 255.5, adress: "Lazareva square")}
+    room_description:"Nice", include_breakfast: true, price: 255.5, adress: "Lazareva square", star_rate_hotel: 4)}
 
    before {visit user_path(user)}
 

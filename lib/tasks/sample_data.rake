@@ -23,8 +23,9 @@ namespace :db do
       include_breakfast = true
       price = 566.3
       adress  = "Sevastopol"
+      star_rate_hotel = 3
       users.each {|user| user.hotels.create!(title: title, room_description: room_description,
-        include_breakfast: include_breakfast, price: price, adress: adress)}
+        include_breakfast: include_breakfast, price: price, adress: adress, star_rate_hotel: star_rate_hotel)}
     end
   end
 end

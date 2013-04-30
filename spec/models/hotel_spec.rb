@@ -17,7 +17,7 @@ require 'spec_helper'
 
 describe Hotel do
   let(:user) {FactoryGirl.create(:user)}
-  before {@hotel = user.hotels.build(title: "Hilton", room_description: "Biiiiig Room",include_breakfast: true, price: 566.6, adress:"Smolnaya")}
+  before {@hotel = user.hotels.build(title: "Hilton", room_description: "Biiiiig Room",include_breakfast: true, price: 566.6, adress:"Smolnaya", star_rate_hotel: 3)}
 
     subject{@hotel}
 
@@ -27,6 +27,7 @@ describe Hotel do
     it {should respond_to(:price)}
     it {should respond_to(:adress)}
     it {should respond_to(:user_id)}
+    it {should respond_to(:star_rate_hotel)}
     it {should respond_to(:user)}
 
    its(:user) { should == user }
@@ -66,6 +67,11 @@ describe Hotel do
       it {should_not be_valid}
     end
 
+    describe "with blank star_rate_hotel" do
+      before {@hotel.star_rate_hotel = " "}
+      it {should_not be_valid}
+    end
+
     describe "with blank adress" do
       before {@hotel.adress = " "}
       it {should_not be_valid}
@@ -97,5 +103,16 @@ describe Hotel do
       before {@hotel.adress = "a" * 1001}
       it {should_not be_valid}
     end
+
+    describe "with star_rate_hotel out of range" do
+      before {@hotel.star_rate_hotel = 6}
+      it {should_not be_valid}
+    end
+
+    describe "with star_rate_hotel is integer" do
+      before {@hotel.star_rate_hotel = 6.6}
+      it {should_not be_valid}
+    end
+
 end
 

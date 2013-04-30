@@ -1,4 +1,6 @@
 SampleApp::Application.routes.draw do
+  match '/rate' => 'rater#create', :as => 'rate'
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :hotels, only: [:create, :destroy]

@@ -30,6 +30,7 @@ describe "HotelPages" do
           check 'hotel_include_breakfast'
           fill_in 'hotel_price', with: 55.2
           fill_in 'hotel_adress', with: "Some adress"
+          choose('hotel_star_rate_hotel_3_star')
         end
 
         it "should create a hotel" do

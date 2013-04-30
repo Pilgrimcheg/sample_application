@@ -15,6 +15,7 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :name, :password, :password_confirmation
   has_secure_password
+  letsrate_rater
   has_many :hotels, dependent: :destroy
 
   before_save {email.downcase!}

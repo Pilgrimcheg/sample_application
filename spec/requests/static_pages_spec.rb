@@ -22,9 +22,9 @@ describe "Static pages" do
       let(:user) {FactoryGirl.create(:user)}
       before do
         FactoryGirl.create(:hotel, user: user, title: "Moscow",
-        room_description:"Good", include_breakfast: true, price: 366.5, adress: "Red square" )
+        room_description:"Good", include_breakfast: true, price: 366.5, adress: "Red square", star_rate_hotel: 4)
         FactoryGirl.create(:hotel, user: user, title: "Sevastopol",
-        room_description:"God", include_breakfast: true, price: 346.5, adress: "Lazarev square" )
+        room_description:"God", include_breakfast: true, price: 346.5, adress: "Lazarev square", star_rate_hotel: 3 )
         sign_in user
         visit root_path
       end

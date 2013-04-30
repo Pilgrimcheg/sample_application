@@ -6,6 +6,7 @@ class CreateHotels < ActiveRecord::Migration
       t.boolean :include_breakfast
       t.float :price
       t.string :adress
+      t.integer :star_rate_hotel
       t.integer :user_id
 
       t.timestamps

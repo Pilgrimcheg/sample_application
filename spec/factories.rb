@@ -16,6 +16,7 @@ FactoryGirl.define do
       include_breakfast true
       price 3258.2
       adress "fiol str."
+      star_rate_hotel "3"
       user
     end
 end

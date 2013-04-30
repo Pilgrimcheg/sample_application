@@ -14,7 +14,8 @@
 #
 
 class Hotel < ActiveRecord::Base
-  attr_accessible :adress, :include_breakfast, :price, :room_description, :title
+  attr_accessible :adress, :include_breakfast, :price, :room_description, :title, :star_rate_hotel
+  letsrate_rateable "stars"
   belongs_to :user
 
   validates :user_id, presence: true
@@ -24,6 +25,7 @@ class Hotel < ActiveRecord::Base
   VALID_PRICE_REGEX = /(?!^0*$)(?!^0*\.0*$)^\d{1,5}(\.\d{1,3})?$/
   validates :price, presence: true, presence:true, format: {with: VALID_PRICE_REGEX}
   validates :include_breakfast, inclusion:{in: [true, false]}
+  validates :star_rate_hotel, presence: true, inclusion: {in: 1..5}
 
   default_scope order: 'hotels.created_at DESC'
 end

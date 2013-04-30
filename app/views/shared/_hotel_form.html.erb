@@ -7,6 +7,10 @@
     <%= f.text_field :adress, placeholder: "Adress?" %>
     <%= f.check_box :include_breakfast%>
     <%= f.label "Include breakfast?", class: "checkbox inline" %>
+<br><% ["1 star", "2 star", "3 star", "4 star", "5 star"].each do |item| %>
+  <%= f.radio_button :star_rate_hotel, item %> <%= item %><br />
+<% end %>
   </div>
+  <p>
   <%= f.submit "Post", class: "btn btn-large btn-primary" %>
 <% end %>
