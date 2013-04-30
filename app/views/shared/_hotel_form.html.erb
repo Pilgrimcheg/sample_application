@@ -10,6 +10,8 @@
 <br><% ["1 star", "2 star", "3 star", "4 star", "5 star"].each do |item| %>
   <%= f.radio_button :star_rate_hotel, item %> <%= item %><br />
 <% end %>
+<p> Upload photo hotel(optionaly)
+<%= f.file_field :photo %>
   </div>
   <p>
   <%= f.submit "Post", class: "btn btn-large btn-primary" %>

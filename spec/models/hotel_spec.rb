@@ -2,15 +2,19 @@
 #
 # Table name: hotels
 #
-#  id                :integer          not null, primary key
-#  title             :string(255)
-#  room_description  :text
-#  include_breakfast :boolean
-#  price             :float
-#  adress            :string(255)
-#  user_id           :integer
-#  created_at        :datetime         not null
-#  updated_at        :datetime         not null
+#  id                 :integer          not null, primary key
+#  title              :string(255)
+#  room_description   :text
+#  include_breakfast  :boolean
+#  price              :float
+#  adress             :string(255)
+#  star_rate_hotel    :integer
+#  photo_file_name    :string(255)
+#  photo_content_type :string(255)
+#  photo_file_size    :string(255)
+#  user_id            :integer
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
 #
 
 require 'spec_helper'

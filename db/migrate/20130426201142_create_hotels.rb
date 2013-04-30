@@ -7,6 +7,9 @@ class CreateHotels < ActiveRecord::Migration
       t.float :price
       t.string :adress
       t.integer :star_rate_hotel
+      t.string :photo_file_name
+      t.string :photo_content_type
+      t.string :photo_file_size
       t.integer :user_id
 
       t.timestamps

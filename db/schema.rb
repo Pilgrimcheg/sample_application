@@ -20,9 +20,12 @@ ActiveRecord::Schema.define(:version => 20130430094514665) do
     t.float    "price"
     t.string   "adress"
     t.integer  "star_rate_hotel"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.string   "photo_file_size"
     t.integer  "user_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   add_index "hotels", ["user_id", "created_at"], :name => "index_hotels_on_user_id_and_created_at"
