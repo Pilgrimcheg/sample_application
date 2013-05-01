@@ -118,5 +118,14 @@ describe Hotel do
       it {should_not be_valid}
     end
 
+    describe "attached photo" do
+      it {should have_attached_file(:photo)}
+    end
+
+    describe "attached file photo size" do
+      it { should validate_attachment_size(:photo).
+                less_than(3.megabytes) }
+    end
+
 end
 

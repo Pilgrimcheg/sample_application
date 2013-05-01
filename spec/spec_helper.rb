@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'spork'
+require "paperclip/matchers"
 #uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'
 
@@ -83,4 +84,9 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  #Paperclip
+  Spec::Runner.configure do |config|
+  config.include Paperclip::Shoulda::Matchers
+end
 end
