@@ -25,6 +25,10 @@ describe "Static pages" do
         room_description:"Good", include_breakfast: true, price: 366.5, adress: "Red square", star_rate_hotel: 4)
         FactoryGirl.create(:hotel, user: user, title: "Sevastopol",
         room_description:"God", include_breakfast: true, price: 346.5, adress: "Lazarev square", star_rate_hotel: 3 )
+        FactoryGirl.create(:hotel, user: user, title: "Sev",
+        room_description:"God", include_breakfast: true, price: 346.5, adress: "Lazarev square", star_rate_hotel: 3 )
+        FactoryGirl.create(:hotel, user: user, title: "Sevas",
+        room_description:"God", include_breakfast: true, price: 346.5, adress: "Lazarev square", star_rate_hotel: 3 )
         sign_in user
         visit root_path
       end
@@ -34,6 +38,15 @@ describe "Static pages" do
           page.should have_selector("li##{item.id}", text: item.title)
         end
       end
+
+      it "should have hotel count and pluralize" do
+        page.should have_content('4 hotels')
+      end
+
+      it "should the paginate user's feed" do
+          page.should have_selector('div', class: 'pagination')
+       end
+
     end
   end
 

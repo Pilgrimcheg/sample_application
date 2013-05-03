@@ -151,4 +151,24 @@ describe "UserPages" do
       specify {user.reload.email.should ==new_email}
     end
    end
+
+   describe "not view delete link another user" do
+
+    let(:user) {FactoryGirl.create(:user)}
+    let(:another_user) {FactoryGirl.create(:user, name: "Some name", email: "Some@email.ua", password: "111111", password_confirmation: "111111")}
+    before do
+        FactoryGirl.create(:hotel, user: user, title: "Moscow",
+        room_description:"Good", include_breakfast: true, price: 366.5, adress: "Red square", star_rate_hotel: 4)
+        FactoryGirl.create(:hotel, user: user, title: "Sevastopol",
+        room_description:"God", include_breakfast: true, price: 346.5, adress: "Lazarev square", star_rate_hotel: 3 )
+      sign_in another_user
+      visit root_path
+      end
+
+      it "should not have link delete" do
+        should_not have_content('delete')
+      end
+
+    end
+
 end

@@ -1,26 +1,5 @@
 <% if signed_in? %>
-<div class="row">
-  <aside class="span4">
-    <section>
-      <%= render 'shared/user_info' %>
-    </section>
-    <section>
-      <%= render 'shared/hotel_form' %>
-    </section>
-  </aside>
-<div class="span8">
-  <h3>Hotels Feed</h3>
-  <%= render 'shared/feed' %>
-</div>
-</div>
+<%= render 'shared/sign_in_user' %>
 <% else %>
-<div class="center hero-unit">
-<h1>Hotel Advisor</h1>
-<h2>
-Welcome to our website
-</h2>
- <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
-</div>
-
-<%= link_to image_tag("HAlogo.jpg", alt: "HA"), '#' %>
+<%= render 'shared/non_sign_in_user' %>
 <% end %>

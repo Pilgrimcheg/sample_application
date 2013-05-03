@@ -10,6 +10,7 @@ gem 'jquery-rails', '2.0.2'
 gem 'letsrate'
 gem 'paperclip'
 gem 'paperclipdropbox'
+gem 'i18n-js', '2.1.2'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

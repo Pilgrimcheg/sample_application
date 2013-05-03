@@ -8,7 +8,14 @@ FactoryGirl.define do
    factory :admin do
     admin true
   end
-  end
+end
+
+   factory :another_user do
+   sequence(:name) { |n| "Persn #{n}" }
+   sequence(:email) { |n| "Persn_#{n}@example.com" }
+   password "karl11"
+   password_confirmation "karl11"
+ end
 
     factory :hotel do
       title "Hilton"

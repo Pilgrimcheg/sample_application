@@ -10,7 +10,6 @@
       Posted <%= time_ago_in_words(hotel.created_at) %> ago. Stars : <%= rating_for hotel, "stars", :star => 5 %>
     </span>
     <% if current_user?(hotel.user) %>
-    <%= link_to "delete", hotel, method: :delete, data: {confirm: "You sure?"},
-                                                                                        title: hotel.title %>
+    <%= render partial: 'shared/delete_link', locals: {object: hotel} %>
       <% end %>
 </li>
